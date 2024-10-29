@@ -7,7 +7,7 @@ import { IIconButtonProps, IIconProps } from './types';
 import { getAttributes } from './icons/html-attributes';
 
 export /*bundle*/ const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>((props: IIconButtonProps, ref) => {
-	const { icon, onClick, viewBox, disabled, name, value, id, title, children } = props;
+	const { icon, onClick, viewBox, disabled, name, value, id, title, children, href, target } = props;
 
 	const buttonRef: IIconButtonProps['ref'] = React.useRef(null);
 	const rippleRef = React.useRef(null);
@@ -26,13 +26,19 @@ export /*bundle*/ const IconButton = forwardRef<HTMLButtonElement, IIconButtonPr
 	}, [title]);
 
 	const onClickButton = async (event: MouseEvent<HTMLButtonElement>): Promise<void> => {
+		event.stopPropagation();
+		event.preventDefault();
 		if (onClick && typeof onClick === 'function') {
 			onClick(event);
 			return;
 		}
 
-		if (props.navigate) {
-			routing.pushState(props.navigate);
+		if (href) {
+			if (target === '_blank') {
+				globalThis.open(href, target);
+				return;
+			}
+			routing.pushState(href);
 		}
 	};
 
@@ -80,7 +86,7 @@ export /*bundle*/ const IconButton = forwardRef<HTMLButtonElement, IIconButtonPr
 			onClick={onClickButton}
 			{...buttonAttrs}
 		>
-			<span ref={rippleRef} className='pui-icon-button-mask'></span>
+			<span ref={rippleRef} className="pui-icon-button-mask"></span>
 			<Icon {...iconAttributes} onClick={handleIconClick} />
 			{children}
 		</button>

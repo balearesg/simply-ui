@@ -20,6 +20,8 @@ export function useLoading(props: IProps): [IInitialState, ISetState] {
 
 	useEffect(() => {
 		const currentSrc: string = props.src;
+		// console.log(0.4, props.src);
+
 		if (state.url !== currentSrc) {
 			let size: string = props.size ?? state.size;
 			loadImage(currentSrc, size);
