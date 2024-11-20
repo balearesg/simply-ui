@@ -8,8 +8,8 @@ export /*bundle*/ class RippleEffect {
 	private add(elements) {
 		this.elements = Array.isArray(elements) ? elements : [elements];
 		this.elements.forEach(element => {
-			element.classList.add('ripple');
-			element.addEventListener('mousedown', this.onClick);
+			element?.classList.add('ripple'); 
+			element?.addEventListener?.('mousedown', this.onClick); 
 		});
 	}
 
