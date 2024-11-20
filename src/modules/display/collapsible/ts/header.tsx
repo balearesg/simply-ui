@@ -8,7 +8,7 @@ export /*bundle */ function CollapsibleHeader({
 	className,
 	toggleTitle = true,
 }: ICollapsibleHeader): JSX.Element {
-	const { setOpen, onToggle, open } = useCollapsibleContext();
+	const { setOpen, onToggle, open, toggleable } = useCollapsibleContext();
 
 	const onClick = async () => {
 		if (!onToggle) {
@@ -26,8 +26,8 @@ export /*bundle */ function CollapsibleHeader({
 	}
 	return (
 		<header {...attrs}>
-			<div className='collapsible__header-content'>{children}</div>
-			<IconButton onClick={onClick} className={clsButton} icon={'left'} />
+			<div className="collapsible__header-content">{children}</div>
+			{toggleable && <IconButton onClick={onClick} className={clsButton} icon={'left'} />}
 		</header>
 	);
 }

@@ -1,8 +1,14 @@
 import React from 'react';
-import Select from 'react-select';
+
 import { useStyles } from './use-styles';
 import { MobileSelect } from './mobile-select';
 
+/**
+ * The component is deprecated is 'select' component instead.
+ * @deprecated
+ * @param props
+ * @returns
+ */
 export /*bundle*/
 function ReactSelect(props) {
 	let properties = { ...props };
@@ -18,14 +24,4 @@ function ReactSelect(props) {
 	};
 
 	return <MobileSelect {...props} />;
-	// if (isMobile({ tablet: true })) return <MobileSelect {...props} />;
-
-	const attrs = { onChange, ...properties, value };
-
-	return (
-		<div className='pui-select' ref={ref}>
-			{props.label && <label>{props.label}</label>}
-			<Select classNamePrefix='pui-react-select' {...attrs} />
-		</div>
-	);
 }

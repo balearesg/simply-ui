@@ -6,6 +6,7 @@ export interface IProps {
 export interface ITabProps extends IProps {
 	disabled?: boolean;
 	index?: number;
+	name?: string;
 }
 export interface ITPane {
 	tab: string;
@@ -17,9 +18,9 @@ export interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export interface ITabsContainerProps extends IProps {
-	active?: boolean;
-	onChange?: (event, index) => void;
+	active?: number;
+	onChange?: (event, index?) => void;
 	className?: string;
 	setURL?: boolean; // todo
-	panes: ITPane[];
+	panes?: ITPane[];
 }

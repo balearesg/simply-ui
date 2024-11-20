@@ -1,12 +1,1 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
-.container__aside {
-	&::-webkit-scrollbar {
-		width: 7px;
-		background-color: var(--surface);
-	}
-
-	&::-webkit-scrollbar-thumb {
-		background-color: var(--tertiary);
-		border-radius: 7px;
-	}
-}

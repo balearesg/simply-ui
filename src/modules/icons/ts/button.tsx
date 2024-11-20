@@ -26,14 +26,15 @@ export /*bundle*/ const IconButton = forwardRef<HTMLButtonElement, IIconButtonPr
 	}, [title]);
 
 	const onClickButton = async (event: MouseEvent<HTMLButtonElement>): Promise<void> => {
-		event.stopPropagation();
 		event.preventDefault();
+
 		if (onClick && typeof onClick === 'function') {
 			onClick(event);
 			return;
 		}
 
 		if (href) {
+			event.stopPropagation();
 			if (target === '_blank') {
 				globalThis.open(href, target);
 				return;

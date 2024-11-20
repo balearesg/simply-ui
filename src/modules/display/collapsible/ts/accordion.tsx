@@ -15,11 +15,12 @@ export /*bundle */ function Header({ disabled, children, index }) {
 	const attrs: { onClick?: (event: any) => void } = {};
 	if (!disabled) attrs.onClick = onClick;
 	const icon = opened ? 'expandMore' : 'chevronRight';
+
 	return (
-		<header {...attrs} className='accordion-item__header'>
+		<header {...attrs} className="accordion-item__header">
 			{children}
-			<div className='accordion-item__header-icon'>
-				<IconButton icon={icon} className='circle' />
+			<div className="accordion-item__header-icon">
+				<IconButton icon={icon} className="accordion-item__icon-button circle" />
 			</div>
 		</header>
 	);
@@ -38,7 +39,7 @@ export /*bundle */ function Item({ disabled, children, title, index }: IAccordio
 					{title}
 				</Header>
 			)}
-			<div className='accordion-item__content'>{children}</div>
+			<div className="accordion-item__content">{children}</div>
 		</article>
 	);
 }
@@ -58,7 +59,7 @@ export /*bundle */ function Container({ children, active = 0 }) {
 
 	return (
 		<AccordionContext.Provider value={value}>
-			<div className='accordion'>{output}</div>
+			<div className="accordion">{output}</div>
 		</AccordionContext.Provider>
 	);
 }

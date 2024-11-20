@@ -14,15 +14,6 @@
 		grid-area: navbar;
 	}
 
-	.container__aside {
-		position: sticky;
-		overflow: auto;
-		top: 80px;
-		grid-area: aside;
-		height: 85vh;
-		background: var(--background);
-	}
-
 	.container__footer {
 		grid-area: footer;
 	}

@@ -3,13 +3,12 @@ $colors: 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'defaul
 .pui-badge__container {
 	display: inline-flex;
 	position: relative;
-	padding: 0.625rem;
+	// padding: 0.625rem;
 	max-width: fit-content;
 	align-items: center;
 	justify-content: center;
 
 	.pui-badge {
-
 		position: absolute;
 		top: -2px;
 		right: 0px;

@@ -24,7 +24,14 @@
 			cursor: not-allowed;
 		}
 	}
+
 	&.accordion-item--opened {
+		.accordion-item__icon-button {
+			svg.pui-icon {
+				rotate: 45deg;
+				transform: rotate(45deg); // Start in the original position
+			}
+		}
 		.accordion-item__content {
 			height: auto;
 			display: block;
@@ -34,8 +41,9 @@
 		padding: 1rem 0;
 		height: 0;
 		overflow: hidden;
-
+		transition: all 300ms ease-in;
 		display: none;
+
 		&.accordion-item__content--opened {
 			height: auto;
 		}

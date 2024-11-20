@@ -20,6 +20,8 @@ export interface ICollapsibleHeader {
 export interface IContainerProps {
 	children: React.ReactNode;
 	className?: string;
+	toggleable: boolean;
 	open?: boolean;
 	onToggle?: (open: boolean) => void;
+	data?: any;
 }

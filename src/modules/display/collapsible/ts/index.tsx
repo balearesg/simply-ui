@@ -7,10 +7,13 @@ export /*bundle */ function CollapsibleContainer({
 	onToggle,
 	open = false,
 	className,
-}: IContainerProps): JSX.Element {
+	toggleable = true,
+	data,
+}: Partial<IContainerProps>): JSX.Element {
 	open;
 	const [opened, setOpen] = React.useState(open);
-	const value = { open: opened, setOpen, onToggle };
+
+	const value = { open: opened, setOpen, onToggle, toggleable, ...data };
 	const cls = `collapsible__container ${className ? ` ${className}` : ''} `;
 	React.useEffect(() => {
 		setOpen(open);
