@@ -13,6 +13,10 @@ export /*bundle*/ function ButtonGroup({
 	cls += orientation ? ` pui-button-group ${orientation}` : '';
 	let disabled = !!props.disabled;
 
+	React.useEffect(() => {
+		setSelected(props.selected);
+	}, [props.selected]);
+
 	const childrenWithProps = React.Children.map(children, (child, index) => {
 		if (React.isValidElement(child)) {
 			return React.cloneElement(child, { index, disabled, onClick: onChange } as IButtonGroupProps); // Passing the index as a prop

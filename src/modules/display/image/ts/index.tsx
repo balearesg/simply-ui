@@ -15,13 +15,12 @@ function Image(props: IProps = {}): JSX.Element {
 	const { status } = useLoader(props.src);
 
 	let cls: string = `pui-image ${className ? ` ${className}` : ''}`;
-	const properties: IProps = { ...props, className: cls, onClick };
 
 	if (!loaded && !htmlLoaded) cls += ' pui-image-preload';
 	if (error) cls += ' pui-image-error';
-
+	const properties: IProps = { ...props, className: cls, onClick };
 	['src', 'alt', 'onError', 'children', 'size', 'loading', 'error', 'sources', 'sizeLoading'].forEach(
-		prop => delete properties[prop],
+		prop => delete properties[prop]
 	);
 
 	const value: IContext = {
@@ -48,7 +47,7 @@ function Image(props: IProps = {}): JSX.Element {
 		<ImageContext.Provider value={value}>
 			<picture {...properties} style={styles} data-src={props.src}>
 				<Sources />
-				<Content />
+				<Content {...properties} />
 				{children}
 			</picture>
 		</ImageContext.Provider>
