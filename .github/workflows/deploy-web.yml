@@ -1,0 +1,43 @@
+name: Publish webapp
+
+on:
+    push:
+        branches:
+            - deploy/web # Change this to the branch you want to trigger the publish
+
+jobs:
+    build-and-publish:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '18' # Specify the Node.js version you need
+                  registry-url: 'https://registry.npmjs.org'
+
+            - name: Install BeyondJS globally
+              run: npm install -g beyond@latest
+
+            - name: Install dependencies
+              working-directory: src
+              run: npm install
+
+            - name: Build package
+              run: beyond build --pkg=pragmate-ui-docs --distribution=web --logs
+
+            - name: Publish to NPM
+              working-directory: src/.beyond/builds/npm/code
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: npm publish
+
+            - name: Deploy to Netlify
+              env:
+                  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }} # Add your Netlify token in GitHub secrets
+              run: |
+                  npm install -g netlify-cli # Ensure Netlify CLI is installed
+                  netlify deploy --prod --dir=path-to-build-directory --auth=$NETLIFY_AUTH_TOKEN --site=9f68faf7-2c8c-4c04-8258-fbb000813766
