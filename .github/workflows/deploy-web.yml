@@ -29,15 +29,9 @@ jobs:
             - name: Build package
               run: beyond build --pkg=pragmate-ui-docs --distribution=web --logs
 
-            - name: Publish to NPM
-              working-directory: src/.beyond/builds/npm/code
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: npm publish
-
             - name: Deploy to Netlify
               env:
                   NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }} # Add your Netlify token in GitHub secrets
               run: |
                   npm install -g netlify-cli # Ensure Netlify CLI is installed
-                  netlify deploy --prod --dir=path-to-build-directory --auth=$NETLIFY_AUTH_TOKEN --site=9f68faf7-2c8c-4c04-8258-fbb000813766
+                  netlify deploy --prod --dir=./.beyond/.deploy/web --auth=$NETLIFY_AUTH_TOKEN --site=9f68faf7-2c8c-4c04-8258-fbb000813766
