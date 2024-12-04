@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@react-three/drei": "^9.119.0"
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import {SwiperSlider} from 'pragmate-ui/swiper-component';
-import {v4 as uuid} from 'uuid';
-import {CardOpinion} from './card';
+import { SwiperSlider } from 'pragmate-ui/swiper';
+import { v4 as uuid } from 'uuid';
+import { CardOpinion } from './card';
 
 interface IOpinion {
 	name: string;
