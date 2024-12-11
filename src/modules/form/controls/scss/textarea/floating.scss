@@ -1,0 +1,39 @@
+.pui-textarea.pui-textarea--floating {
+	position: relative;
+	padding-top: 1rem;
+	border: 1px solid var(--outline);
+	border-radius: var(--border-radius-base);
+	transition: all 300ms ease-in-out;
+
+	textarea {
+		padding: 0.5rem;
+		border: none;
+		transition: all 300ms ease-in-out;
+		&::-webkit-resizer {
+			display: none; // Hides the resize handle in WebKit-based browsers (Chrome, Edge, Safari)
+		}
+		&::placeholder {
+			padding-top: 1rem;
+			margin-top: 1rem;
+		}
+		&:is(:focus)::placeholder {
+			color: transparent;
+		}
+		&:is(:focus) ~ label {
+			transform: translateY(-0.8rem);
+			font-size: 0.765rem;
+			transform-origin: top left; // Anchor the label's top-left corner
+		}
+		&:not(:placeholder-shown) ~ label {
+			transform: translateY(-0.8rem);
+			font-size: 0.765rem;
+			transform-origin: top left; // Anchor the label's top-left corner
+		}
+	}
+	label {
+		transition: all 300ms ease-in-out;
+		position: absolute;
+		top: 1rem;
+		left: 0.5rem;
+	}
+}

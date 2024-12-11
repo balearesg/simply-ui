@@ -8,12 +8,16 @@ $placeholder-devices: '::-webkit-input-', '::-moz-', ':-ms-input-', '::-ms-input
 
 .pui-input.pui-input--floating {
 	position: relative;
-
+	padding-top: 1.3rem;
+	padding-bottom: 0.5rem;
+	border: 1px solid var(--neutral-70);
+	border-radius: var(--border-radius-base);
 	input {
-		font-size: $label-font-size;
+		padding: 0 1rem;
+
+		border: none;
 		background: transparent;
 		width: 100%;
-		font-size: 1rem;
 		box-sizing: border-box;
 		@each $placeholder in $placeholder-devices {
 			&#{nth($placeholder, 1)}placeholder {
@@ -24,13 +28,12 @@ $placeholder-devices: '::-webkit-input-', '::-moz-', ':-ms-input-', '::-ms-input
 			outline: none;
 		}
 	}
+
 	&:focus-within .pui-input__label.floating-label,
 	input:not(:placeholder-shown) ~ .pui-input__label.floating-label {
-		top: -0.8rem;
-		background: var(--surface);
-		padding: 0.2rem 0.5rem;
-		border-radius: var(--border-radius-base);
-		font-size: 0.625rem;
+		top: 0.3rem;
+		left: 1rem;
+		font-size: 0.725rem;
 		color: $label-color;
 	}
 
@@ -38,10 +41,10 @@ $placeholder-devices: '::-webkit-input-', '::-moz-', ':-ms-input-', '::-ms-input
 		position: absolute;
 		pointer-events: none;
 		left: 1rem;
-		top: 0.5rem;
+		top: 1rem;
 		transition: $transition-speed ease all;
 	}
 	&.left-icon label.pui-input__label.floating-label {
-		left: 2rem;
+		left: 1rem;
 	}
 }
