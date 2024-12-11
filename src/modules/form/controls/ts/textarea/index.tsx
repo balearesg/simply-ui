@@ -11,7 +11,7 @@ export /*bundle*/ function Textarea(props: IProps): JSX.Element {
 
 	const checkSize = () => {
 		const { scrollHeight, offsetHeight } = input.current;
-
+		input.current.style.height = 'auto';
 		if (scrollHeight > offsetHeight) {
 			input.current.style.height = `${scrollHeight}px`;
 		}
@@ -34,7 +34,7 @@ export /*bundle*/ function Textarea(props: IProps): JSX.Element {
 	cls += props.disabled ? ' disabled' : '';
 	cls += props.hasError ? ' error' : '';
 	['className', 'hasError', 'counter', 'errorMessage', 'children', 'label', 'floating'].forEach(
-		prop => delete properties[prop],
+		prop => delete properties[prop]
 	);
 	const variants = {
 		unstyled: 'pui-textarea--unstyled',
