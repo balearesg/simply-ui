@@ -15,11 +15,12 @@ export function IconContainer(): JSX.Element {
         'datetime-local': Date
     };
     const output = [];
+
     if (!!types[props.type]) {
         const Control = types[props.type];
         output.push(<Control key="control" />)
     };
-
+    
     if(!!props.icon) {
         output.push(<Icon key="icon" />)
     }

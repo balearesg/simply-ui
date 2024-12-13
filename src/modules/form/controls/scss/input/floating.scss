@@ -15,6 +15,8 @@ $placeholder-devices: '::-webkit-input-', '::-moz-', ':-ms-input-', '::-ms-input
 		width: 100%;
 		font-size: 1rem;
 		box-sizing: border-box;
+		transition: 300ms ease-in-out;
+		
 		@each $placeholder in $placeholder-devices {
 			&#{nth($placeholder, 1)}placeholder {
 				color: transparent;
@@ -26,22 +28,18 @@ $placeholder-devices: '::-webkit-input-', '::-moz-', ':-ms-input-', '::-ms-input
 	}
 	&:focus-within .pui-input__label.floating-label,
 	input:not(:placeholder-shown) ~ .pui-input__label.floating-label {
-		top: -0.8rem;
-		background: var(--surface);
-		padding: 0.2rem 0.5rem;
+		top: 0rem;
+		position: relative;
+		padding: 0rem 0.5rem;
 		border-radius: var(--border-radius-base);
-		font-size: 0.625rem;
+		transform: scale(0.75);
 		color: $label-color;
+		overflow: visible;
+		transition: 300ms ease-in-out;
 	}
-
-	label.pui-input__label.floating-label {
-		position: absolute;
-		pointer-events: none;
-		left: 1rem;
-		top: 0.5rem;
-		transition: $transition-speed ease all;
-	}
+	
 	&.left-icon label.pui-input__label.floating-label {
 		left: 2rem;
 	}
 }
+	

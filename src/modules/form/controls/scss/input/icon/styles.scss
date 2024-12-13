@@ -1,12 +1,16 @@
 .pui-input.pui-input--icon {
+	position: relative;
 	input {
 		padding: 0.5rem 2rem 0.5rem 1rem;
 	}
 	svg.pui-icon.input-icon {
-		fill: var(--primary);
+		position: absolute;
+		right: 0.5rem;
+		bottom: 9px;
+		fill: var(--primary);	
 	}
 	&.icon__floating svg.pui-icon.input-icon {
-		top: 0.5rem;
+		bottom: 9px;
 	}
 	&.left-icon {
 		input {

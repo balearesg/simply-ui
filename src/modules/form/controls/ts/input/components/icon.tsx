@@ -7,5 +7,7 @@ export function Icon(): JSX.Element {
         isDate
     } = useInputContext();
     if (!icon || isDate) return null;
+
+    
     return <PUIIcon icon={icon} className="input-icon" />
 }

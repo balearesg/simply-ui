@@ -10,8 +10,8 @@ export function DefaultExamples() {
 			<Input variant='unstyled' type='text' name='unstyled' label='Unstyled input' />
 			<h5>Defaults</h5>
 			The default variant is used to create a standard input field with default styling.
-			<Input type='text' name='placeholder' placeholder='With placeholder' />
-			<Input type='text' required name='label' label='Input with label' />
+			<Input type='text' variant='floating' name='placeholder' icon='user' placeholder='With placeholder' />
+			<Input type='text' required name='label' variant='floating' label='Input with label' />
 			<Input type='date' name='date' label='Input label' />
 			<h5>Floating Label</h5>
 			This variant includes a floating label that animates as the user interacts with the input field.
