@@ -4,7 +4,7 @@
 	border: 1px solid var(--outline);
 	border-radius: var(--border-radius-base);
 	transition: all 300ms ease-in-out;
-
+	display: grid;
 	textarea {
 		padding: 0.5rem;
 		border: none;
@@ -12,10 +12,7 @@
 		&::-webkit-resizer {
 			display: none; // Hides the resize handle in WebKit-based browsers (Chrome, Edge, Safari)
 		}
-		&::placeholder {
-			padding-top: 1rem;
-			margin-top: 1rem;
-		}
+
 		&:is(:focus)::placeholder {
 			color: transparent;
 		}

@@ -1,5 +1,9 @@
 .pui-textarea {
 	position: relative;
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 0.5rem;
+
 	textarea {
 		// border: none;
 		outline: none;

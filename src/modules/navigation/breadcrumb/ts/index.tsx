@@ -10,6 +10,7 @@ export /* bundle */ function BreadCrumb({ items, separator = '/', className, chi
 	useBinder([routing], () => setCurrentRouting(routing.uri.pathname));
 	const total = items.length;
 	const breadcrumbOutput = items.map(([label, link, onClick], index) => (
+		
 		<Item
 			key={uuid()}
 			total={total}

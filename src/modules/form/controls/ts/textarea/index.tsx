@@ -10,10 +10,20 @@ export /*bundle*/ function Textarea(props: IProps): JSX.Element {
 	const [state, setState] = useState<IState>({ value, errorMessage });
 
 	const checkSize = () => {
-		const { scrollHeight, offsetHeight } = input.current;
-		input.current.style.height = 'auto';
-		if (scrollHeight > offsetHeight) {
-			input.current.style.height = `${scrollHeight}px`;
+		const textarea = input.current;
+		const { scrollHeight, offsetHeight } = textarea;
+
+		// Temporarily cache the current height
+		const previousHeight = textarea.style.height;
+
+		// Avoid jumpy behavior by resetting the height only if necessary
+		if (parseFloat(previousHeight) !== scrollHeight) {
+			textarea.style.height = `${scrollHeight}px`;
+		} else if (scrollHeight < offsetHeight) {
+			// Handle shrinking carefully to avoid abrupt resizing
+			const lineHeight = parseFloat(window.getComputedStyle(textarea).lineHeight);
+			const minHeight = lineHeight * 2; // Example: Minimum 2 lines height
+			textarea.style.height = Math.max(scrollHeight, minHeight) + 'px';
 		}
 	};
 	/**
