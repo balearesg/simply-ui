@@ -4,7 +4,6 @@ import { IPUIProps } from './types';
 
 // Define the interface for the base component
 interface /*bundle*/ BaseComponentProps<T = HTMLElement> extends IPUIProps<T> {
-	as?: keyof JSX.IntrinsicElements; // The HTML tag to be used
 	motion?: boolean; // Flag to determine if framer-motion should be used
 }
 

@@ -18,7 +18,7 @@ export /*bundle*/ function Textarea(props: IProps): JSX.Element {
 			throw new Error('Input element not found.');
 		}
 
-		const computedStyle = window.getComputedStyle(textarea);
+		const computedStyle = globalThis.getComputedStyle(textarea);
 
 		const elementWidth = textarea.clientWidth;
 		const fontSize = computedStyle.fontSize;
