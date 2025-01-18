@@ -1,10 +1,10 @@
-import type { MotionProps } from 'framer-motion';
+import * as motion from 'framer-motion';
 import React, { HTMLAttributes, AnimationEventHandler } from 'react';
 
 type ConflictingProps = 'onAnimationStart' | 'onAnimationEnd' | 'onAnimationIteration';
-export type Julio = 'dev';
+
 type HTMLMotionProps<T> = Omit<HTMLAttributes<T>, ConflictingProps> &
-	MotionProps & {
+	motion.MotionProps & {
 		onAnimationStart?: AnimationEventHandler<T>;
 		onAnimationEnd?: AnimationEventHandler<T>;
 		onAnimationIteration?: AnimationEventHandler<T>;
@@ -22,12 +22,4 @@ export /*bundle*/ interface IPUIProps<T = unknown> extends HTMLMotionProps<T> {
 	as?: string;
 }
 
-export /*bundle*/ type PuiVariant =
-	| 'primary'
-	| 'secondary'
-	| 'tertiary'
-	| 'success'
-	| 'info'
-	| 'error'
-	| 'warning'
-	| 'default';
+export type PuiVariant = 'primary' | 'secondary' | 'tertiary' | 'success' | 'info' | 'error' | 'warning' | 'default';
