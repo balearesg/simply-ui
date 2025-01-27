@@ -15,13 +15,6 @@ function ReactSelect(props) {
 	let { name } = props;
 	const { ref } = useStyles();
 	delete properties.onChange;
-	let value = props.options.find(item => item.value === props.value);
-
-	const onChange = ({ label, value }) => {
-		if (!props.onChange) return;
-		const target = { value, name };
-		props.onChange({ target, currentTarget: { ...target } });
-	};
 
 	return <MobileSelect {...props} />;
 }
