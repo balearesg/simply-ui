@@ -5,7 +5,7 @@ export /*bundle*/ function useLoader(src) {
 
 	React.useEffect(() => {
 		if (!src) {
-			setStatus('error');
+			// setStatus('error');
 			return;
 		}
 

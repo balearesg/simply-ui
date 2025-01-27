@@ -14,16 +14,21 @@ $placeholder-devices: '::-webkit-input-', '::-moz-', ':-ms-input-', '::-ms-input
 	border-radius: var(--border-radius-base);
 	input {
 		padding: 0 1rem;
-
 		border: none;
 		background: transparent;
 		width: 100%;
 		box-sizing: border-box;
-		@each $placeholder in $placeholder-devices {
-			&#{nth($placeholder, 1)}placeholder {
-				color: transparent;
+		border-radius: var(--border-radius-base);
+
+		// Aplica estilos a inputs que NO tengan la clase `with-placeholder`
+		&:not(.with-placeholder) {
+			@each $placeholder in $placeholder-devices {
+				&#{nth($placeholder, 1)}placeholder {
+					color: transparent;
+				}
 			}
 		}
+
 		&:focus {
 			outline: none;
 		}

@@ -1,3 +1,4 @@
+$placeholder-devices: '::-webkit-input-', '::-moz-', ':-ms-input-', '::-ms-input-', '::';
 .pui-textarea.pui-textarea--floating {
 	position: relative;
 	padding-top: 1rem;
@@ -21,6 +22,15 @@
 			font-size: 0.765rem;
 			transform-origin: top left; // Anchor the label's top-left corner
 		}
+		// Aplica estilos a inputs que NO tengan la clase `with-placeholder`
+		&:not(.with-placeholder) {
+			@each $placeholder in $placeholder-devices {
+				&#{nth($placeholder, 1)}placeholder {
+					color: transparent;
+				}
+			}
+		}
+
 		&:not(:placeholder-shown) ~ label {
 			transform: translateY(-0.8rem);
 			font-size: 0.765rem;

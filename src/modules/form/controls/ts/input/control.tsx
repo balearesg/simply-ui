@@ -18,7 +18,7 @@ export function ControlSelector(): JSX.Element {
 	let properties: IProps = { ...props };
 	useEffect(() => {
 		setValue(props.value);
-	}, [props.value]);
+	}, [value]);
 
 	internalProps.forEach(prop => delete properties[prop]);
 
@@ -37,23 +37,10 @@ export function ControlSelector(): JSX.Element {
 		placeholder: placeholder ?? '',
 		value: value ?? '',
 	};
+
 	return (
 		<>
-			<input
-				onInvalid={(event: React.InvalidEvent<HTMLInputElement>) => {
-					const { target } = event;
-					if (target.validity.valueMissing) {
-						target.setCustomValidity('Please enter your name');
-					}
-					console.log('is invalid', name, event);
-				}}
-				ref={input}
-				{...properties}
-				name={name}
-				onChange={handleChange}
-				type={state.type}
-				{...attrs}
-			/>
+			<input ref={input} {...properties} name={name} onChange={handleChange} type={state.type} {...attrs} />
 			<IconContainer />
 		</>
 	);
