@@ -1,13 +1,14 @@
 $placeholder-devices: '::-webkit-input-', '::-moz-', ':-ms-input-', '::-ms-input-', '::';
 .pui-textarea.pui-textarea--floating {
 	position: relative;
-	padding-top: 1rem;
+	padding-top: 1.3rem;
+	padding-bottom: 0.5rem;
 	border: 1px solid var(--outline);
 	border-radius: var(--border-radius-base);
 	transition: all 300ms ease-in-out;
-	display: grid;
+
 	textarea {
-		padding: 0.5rem;
+		padding: 0 1rem;
 		border: none;
 		transition: all 300ms ease-in-out;
 		&::-webkit-resizer {
@@ -40,7 +41,7 @@ $placeholder-devices: '::-webkit-input-', '::-moz-', ':-ms-input-', '::-ms-input
 	label {
 		transition: all 300ms ease-in-out;
 		position: absolute;
+		left: 1rem;
 		top: 1rem;
-		left: 0.5rem;
 	}
 }
