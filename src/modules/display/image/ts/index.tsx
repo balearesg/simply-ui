@@ -1,11 +1,10 @@
 import React from 'react';
-import { IContext, IProps } from './interfaces';
 import { ImageContext } from './context';
 import { Error } from './error';
-import { Img } from './img';
-import { Sources } from './sources';
-import { useLoading } from './hooks/use-loading';
 import { useLoader } from './hooks/use-loader';
+import { Img } from './img';
+import { IContext, IProps } from './interfaces';
+import { Sources } from './sources';
 
 export /*bundle*/
 function Image(props: IProps = {}): JSX.Element {
