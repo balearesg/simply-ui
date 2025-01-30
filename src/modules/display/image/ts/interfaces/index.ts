@@ -1,5 +1,7 @@
 import { ImgHTMLAttributes, SyntheticEvent, ReactNode, SourceHTMLAttributes } from 'react';
-export interface IProps extends ImgHTMLAttributes<HTMLImageElement> {
+import { IPUIProps } from 'pragmate-ui/base';
+export interface IProps extends IPUIProps<HTMLImageElement> {
+	src?: string;
 	graphSrc?: string;
 	size?: string;
 	children?: ReactNode;
