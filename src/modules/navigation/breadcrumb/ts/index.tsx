@@ -9,12 +9,10 @@ export /* bundle */ function BreadCrumb({ items, separator = '/', className, chi
 	const [currentRouting, setCurrentRouting] = React.useState(routing.uri.pathname);
 	useBinder([routing], () => setCurrentRouting(routing.uri.pathname));
 	const total = items.length;
-	const breadcrumbOutput = items.map(([label, link, onClick], index) => (
-		
+	const breadcrumbOutput = items.map(([label, link], index) => (
 		<Item
 			key={uuid()}
 			total={total}
-			onClick={onClick}
 			index={index}
 			separator={separator}
 			link={link}
@@ -28,7 +26,7 @@ export /* bundle */ function BreadCrumb({ items, separator = '/', className, chi
 
 	return (
 		<div className={cls} {...props}>
-			{breadcrumbOutput.length > 0 && <ul className='pui-breadcrumb'>{breadcrumbOutput}</ul>}
+			{breadcrumbOutput.length > 0 && <ul className="pui-breadcrumb">{breadcrumbOutput}</ul>}
 			{children && <div>{children}</div>}
 		</div>
 	);

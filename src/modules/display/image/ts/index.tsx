@@ -1,11 +1,11 @@
 import React from 'react';
-import { IContext, IProps } from './interfaces';
 import { ImageContext } from './context';
 import { Error } from './error';
-import { Img } from './img';
-import { Sources } from './sources';
-import { useLoading } from './hooks/use-loading';
 import { useLoader } from './hooks/use-loader';
+import { Img } from './img';
+import { IContext, IProps } from './interfaces';
+import { Sources } from './sources';
+import { motion } from 'framer-motion';
 
 export /*bundle*/
 function Image(props: IProps = {}): JSX.Element {
@@ -42,11 +42,11 @@ function Image(props: IProps = {}): JSX.Element {
 	const Content = status === 'error' ? Error : Img;
 	return (
 		<ImageContext.Provider value={value}>
-			<picture {...properties} style={styles} data-src={props.src}>
+			<motion.picture {...properties} style={styles} data-src={props.src}>
 				<Sources />
 				<Content {...properties} />
 				{children}
-			</picture>
+			</motion.picture>
 		</ImageContext.Provider>
 	);
 }

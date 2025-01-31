@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'pragmate-ui/components';
 import { IItem } from './types';
 
-export function Item({ link, label, onClick, last, currentRouting, index, total, separator = '>' }: IItem) {
+export function Item({ link, label, last, currentRouting, index, total, separator = '>' }: IItem) {
 	const isChecked = link === currentRouting || last ? 'breadcrumb__item--current' : 'breadcrumb__item';
 	const isFunction = typeof link === 'function';
 	const attrs = {} as Partial<React.AllHTMLAttributes<HTMLAnchorElement>>;

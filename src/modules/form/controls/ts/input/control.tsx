@@ -16,9 +16,6 @@ export function ControlSelector(): JSX.Element {
 		input,
 	} = useInputContext();
 	let properties: IProps = { ...props };
-	useEffect(() => {
-		setValue(props.value);
-	}, [value]);
 
 	internalProps.forEach(prop => delete properties[prop]);
 
