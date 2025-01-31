@@ -29,7 +29,7 @@ function Image(props: IProps = {}): JSX.Element {
 	};
 	const styles: React.CSSProperties = {};
 	if (
-		status !== 'ready' &&
+	status !== 'ready' &&
 		!!sizeLoading &&
 		typeof sizeLoading === 'object' &&
 		sizeLoading.height &&
