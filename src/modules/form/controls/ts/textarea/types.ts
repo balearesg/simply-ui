@@ -6,6 +6,7 @@ export interface IProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 	lengthMessage?: string;
 	hasError?: boolean;
 	label?: string;
+	autoresize?: boolean;
 	value?: string;
 	counter?: boolean;
 	children?: ReactNode;
@@ -19,4 +20,3 @@ export interface IState {
 	errorMessage: string;
 	_hasError?: boolean;
 }
-   

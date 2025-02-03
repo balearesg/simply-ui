@@ -7,7 +7,7 @@ import { TextareaCounter } from './counter';
 let previousHeight = 0;
 export /*bundle*/ function Textarea(props: IProps): JSX.Element {
 	const input = props.ref ?? useRef();
-	const { counter, errorMessage, value = '' } = props;
+	const { counter, errorMessage, autoresize = true, value = '' } = props;
 	const [state, setState] = useState<IState>({ value, errorMessage });
 
 	function calculateLines(textarea: HTMLTextAreaElement): {
@@ -40,6 +40,7 @@ export /*bundle*/ function Textarea(props: IProps): JSX.Element {
 	}
 
 	const checkSize = () => {
+		if (!autoresize) return;
 		const textarea = input.current;
 		const { scrollHeight, offsetHeight } = textarea;
 		const { maxCharsPerLine, lines } = calculateLines(textarea);
