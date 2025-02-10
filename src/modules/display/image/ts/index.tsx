@@ -12,7 +12,7 @@ function Image(props: IProps = {}): JSX.Element {
 	const { className, onClick, children, sizeLoading } = props;
 
 	const { status } = useLoader(props.src);
-
+	console.log(0.1, status, props.src);
 	let cls: string = `pui-image ${className ? ` ${className}` : ''}`;
 
 	if (status === 'loading') cls += ' pui-image-preload';
@@ -29,7 +29,7 @@ function Image(props: IProps = {}): JSX.Element {
 	};
 	const styles: React.CSSProperties = {};
 	if (
-	status !== 'ready' &&
+		status !== 'ready' &&
 		!!sizeLoading &&
 		typeof sizeLoading === 'object' &&
 		sizeLoading.height &&

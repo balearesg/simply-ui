@@ -10,8 +10,13 @@ export /*bundle*/ function useLoader(src) {
 		}
 
 		const img = new globalThis.Image();
-		const onLoad = () => setStatus('ready');
-		const onError = () => setStatus('error');
+		const onLoad = () => {
+			setStatus('ready');
+		};
+		const onError = e => {
+			console.log(e);
+			setStatus('error');
+		};
 
 		img.addEventListener('load', onLoad);
 		img.addEventListener('error', onError);
