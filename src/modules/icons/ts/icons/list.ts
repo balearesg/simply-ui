@@ -697,11 +697,7 @@ transform="translate(-20.5 0.013)"/></g>`,
 		viewBox: '0 0 24 24',
 		icon: '<g><path d="M12 11V15M14 13H10M5 19H19C20.1046 19 21 18.1046 21 17V9C21 7.89543 20.1046 7 19 7H12.3284C11.798 7 11.2893 6.78929 10.9142 6.41421L10.0858 5.58579C9.71071 5.21071 9.20201 5 8.67157 5L5 5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>',
 	},
-	mic: {
-		viewBox: '0 0 24 24',
-		icon: `<g><g><rect fill="none" height="24" width="24"/><rect fill="none" height="24" width="24"/><rect fill="none" height="24" width="24"/></g><g><g/><g><path d="M12,14c1.66,0,3-1.34,3-3V5c0-1.66-1.34-3-3-3S9,3.34,9,5v6C9,12.66,10.34,14,12,14z"/><path d="M17,11c0,2.76-2.24,5-5,5s-5-2.24-5-5H5c0,3.53,2.61,6.43,6,6.92V21h2v-3.08c3.39-0.49,6-3.39,6-6.92H17z"/></g></g></g>
-	  `,
-	},
+
 	stop: `<g id="stop"><path d="M6 6h12v12H6z"></path></g>`,
 	'add-chat': {
 		viewBox: '0 0 24 24',
