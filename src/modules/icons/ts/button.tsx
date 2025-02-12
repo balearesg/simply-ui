@@ -54,7 +54,7 @@ export /*bundle*/ const IconButton = forwardRef<HTMLButtonElement, IIconButtonPr
 		delete attrs[attr];
 	});
 	const iconAttributes: IIconProps = { ...attrs };
-
+	// const iconName = typeof icon === 'string' ? icon : icon?.name;
 	if (typeof icon === 'string') {
 		iconAttributes.icon = icon;
 	} else if (icon && typeof icon === 'object') {
