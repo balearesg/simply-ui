@@ -14,7 +14,6 @@ export /*bundle*/ function useLoader(src) {
 			setStatus('ready');
 		};
 		const onError = e => {
-			console.log(e);
 			setStatus('error');
 		};
 

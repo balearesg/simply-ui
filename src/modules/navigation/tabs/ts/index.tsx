@@ -1,7 +1,6 @@
 import React from 'react';
 import { TabsContext } from './context';
 import { ITabsContainerProps } from './definitions';
-import { AnimatePresence } from 'framer-motion';
 
 export /* bundle  */ function TabsContainer({ active, onChange, className, children, panes }: ITabsContainerProps) {
 	const activeIndex = active || 0;
@@ -11,9 +10,7 @@ export /* bundle  */ function TabsContainer({ active, onChange, className, child
 	const cls = `pui-tabs-container${className ? ` ${className}` : ''}`;
 	return (
 		<TabsContext.Provider value={value}>
-			<AnimatePresence>
-				<section className={cls}>{children}</section>
-			</AnimatePresence>
+			<section className={cls}>{children}</section>
 		</TabsContext.Provider>
 	);
 }

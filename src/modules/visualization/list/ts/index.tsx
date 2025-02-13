@@ -30,7 +30,7 @@ export /*bundle*/ function List<T extends IListItem<any, any>>({
 
 	if (!Array.isArray(items)) {
 		console.warn(
-			'Invalid "items" prop: Expected an array. Please review the component usage and ensure the "items" prop is correctly passed as an array.',
+			'Invalid "items" prop: Expected an array. Please review the component usage and ensure the "items" prop is correctly passed as an array.'
 		);
 		return null;
 	}
@@ -47,15 +47,15 @@ export /*bundle*/ function List<T extends IListItem<any, any>>({
 	}
 
 	const renderItems = control
-		? items.map((item, idx) => (
-				<ItemControl index={index} key={idx} specs={specs} control={control} item={item} idx={idx} />
-		  ))
+		? items.map((item, idx) => {
+				return <ItemControl index={index} key={idx} specs={specs} control={control} item={item} idx={idx} />;
+		  })
 		: items.map((item, idx) =>
 				Children.map(children, child =>
 					isValidElement(child)
 						? cloneElement(child as React.ReactElement<any>, { key: idx, index, specs, item, idx })
-						: child,
-				),
+						: child
+				)
 		  );
 
 	const top = onTop && children ? children : null;
